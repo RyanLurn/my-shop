@@ -1,0 +1,44 @@
+name: Code quality check
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - ".gitignore"
+      - ".gitattributes"
+      - ".env.example"
+      - "**/*.md"
+  pull_request:
+    branches: [main]
+    paths-ignore:
+      - ".gitignore"
+      - ".gitattributes"
+      - ".env.example"
+      - "**/*.md"
+
+jobs:
+  run-checks:
+    runs-on: ubuntu-latest
+
+    name: Run checks
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies with Bun
+        run: bun install
+
+      - name: Setup Biome
+        uses: biomejs/setup-biome@v2
+
+      - name: Run Biome
+        run: biome ci .
+
+      - name: Run type checking
+        run: bun run type-check

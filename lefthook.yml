@@ -1,0 +1,15 @@
+pre-commit:
+  jobs:
+    - name: Lint and format staged files
+      run: bunx biome check --write --no-errors-on-unmatched --files-ignore-unknown=true --colors=off {staged_files}
+      glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc,css}"
+      stage_fixed: true
+
+pre-push:
+  parallel: true
+  jobs:
+    - name: Check formatting and lint before pushing
+      run: bunx biome check
+
+    - name: Type checking before pushing
+      run: bun run type-check
