@@ -35,7 +35,7 @@ jobs:
         run: bun install
 
       - name: Run Biome
-        run: bunx biome ci
+        run: bunx biome check
 
       - name: Run type checking
         run: bun run type-check
