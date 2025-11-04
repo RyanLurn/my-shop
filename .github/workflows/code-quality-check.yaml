@@ -24,18 +24,29 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
         with:
-          bun-version: latest
+          run_install: false
 
-      - name: Install dependencies with Bun
-        run: bun install
+      - name: Setup Node.js v22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "pnpm"
 
+      - name: Install dependencies with pnpm
+        run: pnpm install
+
+      - name: Setup Biome
+        uses: biomejs/setup-biome@v2
+        with:
+          version: latest
+          
       - name: Run Biome
-        run: bunx biome check
-
+        run: biome ci .
+      
       - name: Run type checking
-        run: bun run type-check
+        run: pnpm run type-check
