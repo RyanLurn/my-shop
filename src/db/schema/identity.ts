@@ -1,9 +1,15 @@
 import { integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
+import {
+  ACCOUNTS_TABLE_NAME,
+  SESSIONS_TABLE_NAME,
+  USERS_TABLE_NAME,
+  VERIFICATIONS_TABLE_NAME,
+} from "@/db/consts";
 import { primaryKey } from "@/db/helpers/primary-key";
 import { timestamps } from "@/db/helpers/timestamps";
 import { userIdForeignKey } from "@/db/helpers/user-id-foreign-key";
 
-const usersTable = sqliteTable("users_table", {
+const usersTable = sqliteTable(USERS_TABLE_NAME, {
   // Better Auth schema
   id: primaryKey,
   name: text("name").notNull(),
@@ -20,7 +26,7 @@ const usersTable = sqliteTable("users_table", {
   banExpires: integer("ban_expires", { mode: "timestamp" }),
 });
 
-const sessionsTable = sqliteTable("sessions_table", {
+const sessionsTable = sqliteTable(SESSIONS_TABLE_NAME, {
   // Better Auth schema
   id: primaryKey,
   userId: userIdForeignKey,
@@ -33,7 +39,7 @@ const sessionsTable = sqliteTable("sessions_table", {
   impersonatedBy: text("impersonated_by").references(() => usersTable.id),
 });
 
-const accountsTable = sqliteTable("accounts_table", {
+const accountsTable = sqliteTable(ACCOUNTS_TABLE_NAME, {
   // Better Auth schema
   id: primaryKey,
   userId: userIdForeignKey,
@@ -53,7 +59,7 @@ const accountsTable = sqliteTable("accounts_table", {
   ...timestamps,
 });
 
-const verificationsTable = sqliteTable("verifications_table", {
+const verificationsTable = sqliteTable(VERIFICATIONS_TABLE_NAME, {
   // Better Auth schema
   id: primaryKey,
   identifier: text("identifier").notNull(),
