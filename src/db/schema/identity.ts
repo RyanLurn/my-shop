@@ -53,4 +53,13 @@ const accountsTable = sqliteTable("accounts_table", {
   ...timestamps,
 });
 
-export { usersTable, sessionsTable, accountsTable };
+const verificationsTable = sqliteTable("verifications_table", {
+  // Better Auth schema
+  id: primaryKey,
+  identifier: text("identifier").notNull(),
+  value: text("value").notNull(),
+  expiresAt: integer("expires_at", { mode: "timestamp" }).notNull(),
+  ...timestamps,
+});
+
+export { usersTable, sessionsTable, accountsTable, verificationsTable };
