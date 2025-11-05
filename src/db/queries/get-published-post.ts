@@ -2,7 +2,7 @@ import { and, eq } from "drizzle-orm";
 import { err, ok, type Result } from "neverthrow";
 import { db } from "@/db/connect";
 import { postsTable } from "@/db/schema/content";
-import type { NotFoundError, UnexceptedError } from "@/types/errors";
+import type { NotFoundError, UnexpectedError } from "@/types/errors";
 
 type SelectPost = typeof postsTable.$inferSelect;
 
@@ -10,7 +10,7 @@ async function getPublishedPost({
   slug,
   language,
 }: Pick<SelectPost, "slug" | "language">): Promise<
-  Result<SelectPost, NotFoundError | UnexceptedError>
+  Result<SelectPost, NotFoundError | UnexpectedError>
 > {
   try {
     const post = await db
@@ -35,7 +35,7 @@ async function getPublishedPost({
     console.warn(notFoundError);
     return err(notFoundError);
   } catch (error) {
-    const unexpectedError: UnexceptedError = {
+    const unexpectedError: UnexpectedError = {
       kind: "unexpected",
       message: "Unexpected error",
       error,

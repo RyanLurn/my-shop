@@ -1,4 +1,4 @@
-type UnexceptedError = {
+type UnexpectedError = {
   kind: "unexpected";
   message: string;
   error: unknown;
@@ -11,4 +11,4 @@ type NotFoundError = {
   context?: Record<string, unknown>;
 };
 
-export type { UnexceptedError, NotFoundError };
+export type { UnexpectedError, NotFoundError };
