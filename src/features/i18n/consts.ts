@@ -1,3 +1,4 @@
+const DEFAULT_LANGUAGE = "en";
 const SUPPORTED_LANGUAGES = ["en", "vi"] as const;
 
-export { SUPPORTED_LANGUAGES };
+export { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES };
