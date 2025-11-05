@@ -1,7 +1,6 @@
-import { match } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
 import type { NextRequest } from "next/server";
-import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from "@/features/i18n/consts";
+import { getMatchedLanguage } from "@/features/i18n/helpers/get-matched-language";
 
 function getDisplayLanguage(request: NextRequest) {
   const headersObject = Object.fromEntries(request.headers.entries());
@@ -10,11 +9,7 @@ function getDisplayLanguage(request: NextRequest) {
     headers: headersObject,
   }).languages();
 
-  const matchedLanguage = match(
-    visitorPreferredLanguages,
-    SUPPORTED_LANGUAGES,
-    DEFAULT_LANGUAGE
-  );
+  const matchedLanguage = getMatchedLanguage(visitorPreferredLanguages);
 
   return matchedLanguage;
 }
