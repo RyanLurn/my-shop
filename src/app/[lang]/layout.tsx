@@ -20,18 +20,22 @@ export const metadata: Metadata = {
     "Where I showcase my open-source work in the form of an ecom store",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
+  params,
   children,
 }: Readonly<{
+  params: Promise<{ lang: string }>;
   children: React.ReactNode;
 }>) {
+  const { lang } = await params;
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={lang} suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>
-          {children}
+          <div className="h-dvh">{children}</div>
           <ModeToggle className="fixed top-3 right-3 z-50" />
         </Providers>
       </body>
