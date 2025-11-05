@@ -33,4 +33,24 @@ const sessionsTable = sqliteTable("sessions_table", {
   impersonatedBy: text("impersonated_by").references(() => usersTable.id),
 });
 
-export { usersTable, sessionsTable };
+const accountsTable = sqliteTable("accounts_table", {
+  // Better Auth schema
+  id: primaryKey,
+  userId: userIdForeignKey,
+  accountId: text("account_id").notNull(),
+  providerId: text("provider_id").notNull(),
+  accessToken: text("access_token"),
+  refreshToken: text("refresh_token"),
+  accessTokenExpiresAt: integer("access_token_expires_at", {
+    mode: "timestamp",
+  }),
+  refreshTokenExpiresAt: integer("refresh_token_expires_at", {
+    mode: "timestamp",
+  }),
+  scope: text("scope"),
+  idToken: text("id_token"),
+  password: text("password"),
+  ...timestamps,
+});
+
+export { usersTable, sessionsTable, accountsTable };
