@@ -5,4 +5,10 @@ type UnexceptedError = {
   context?: Record<string, unknown>;
 };
 
-export type { UnexceptedError };
+type NotFoundError = {
+  kind: "not-found";
+  message: string;
+  context?: Record<string, unknown>;
+};
+
+export type { UnexceptedError, NotFoundError };
