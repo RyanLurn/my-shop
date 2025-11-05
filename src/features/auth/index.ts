@@ -9,6 +9,7 @@ import {
   USERS_TABLE_NAME,
   VERIFICATIONS_TABLE_NAME,
 } from "@/db/consts";
+import { serverEnv } from "@/lib/env/server";
 
 const auth = betterAuth({
   database: drizzleAdapter(db, {
@@ -29,6 +30,12 @@ const auth = betterAuth({
   advanced: {
     database: {
       generateId: false,
+    },
+  },
+  socialProviders: {
+    github: {
+      clientId: serverEnv.GITHUB_CLIENT_ID,
+      clientSecret: serverEnv.GITHUB_CLIENT_SECRET,
     },
   },
   plugins: [admin(), nextCookies()], // Make sure that nextCookies is the last plugin
