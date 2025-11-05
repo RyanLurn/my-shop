@@ -15,6 +15,13 @@
       "when": 1762307505377,
       "tag": "0001_past_hemingway",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1762350392243,
+      "tag": "0002_many_xavin",
+      "breakpoints": true
     }
   ]
 }
