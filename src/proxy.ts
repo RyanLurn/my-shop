@@ -10,7 +10,7 @@ export function proxy(request: NextRequest) {
 
   if (pathnameHasLanguage) return;
 
-  const displayLanguage = getDisplayLanguage(request);
+  const displayLanguage = getDisplayLanguage(request.headers);
   request.nextUrl.pathname = `/${displayLanguage}${pathname}`;
 
   return NextResponse.redirect(request.nextUrl);
