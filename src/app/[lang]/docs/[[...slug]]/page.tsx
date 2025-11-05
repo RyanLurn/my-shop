@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getPublishedPost } from "@/db/queries/get-published-post";
 import { EN_DOCS_INDEX_SLUG, VI_DOCS_INDEX_SLUG } from "@/features/i18n/consts";
+import { getDictionary } from "@/features/i18n/helpers/get-dictionary";
 
 type DocPageProp = {
   params: Promise<{ lang: "en" | "vi"; slug?: string[] }>;
@@ -8,6 +9,8 @@ type DocPageProp = {
 
 export default async function DocPage({ params }: DocPageProp) {
   const { lang, slug } = await params;
+  const dictionary = await getDictionary(lang);
+
   const indexSlug = lang === "en" ? EN_DOCS_INDEX_SLUG : VI_DOCS_INDEX_SLUG;
   const docSlug = slug?.join("/") || indexSlug;
 
@@ -21,7 +24,7 @@ export default async function DocPage({ params }: DocPageProp) {
       notFound();
     }
 
-    throw new Error("Something went wrong");
+    throw new Error(dictionary["unexpected-error-display-message"]);
   }
 
   const post = getPublishedPostResult.value;
