@@ -14,6 +14,7 @@ const enDictionary: Dictionary = {
   signIn: "Sign in",
   alreadyHaveAnAccount: "Already have an account?",
   dontHaveAnAccount: "Don't have an account?",
+  somethingWentWrong: "Something went wrong",
 };
 
 export { enDictionary };

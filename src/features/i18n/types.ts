@@ -17,6 +17,7 @@ type Dictionary = {
   signIn: string;
   alreadyHaveAnAccount: string;
   dontHaveAnAccount: string;
+  somethingWentWrong: string;
 };
 
 export type { SupportedLanguage, Dictionary };

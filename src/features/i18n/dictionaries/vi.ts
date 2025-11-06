@@ -14,6 +14,7 @@ const viDictionary: Dictionary = {
   signIn: "Đăng nhập",
   alreadyHaveAnAccount: "Bạn đã có tài khoản?",
   dontHaveAnAccount: "Bạn chưa có tài khoản?",
+  somethingWentWrong: "Đã xảy ra lỗi",
 };
 
 export { viDictionary };
