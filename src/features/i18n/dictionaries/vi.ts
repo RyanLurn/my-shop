@@ -6,6 +6,7 @@ const viDictionary: Dictionary = {
       default: "Đã xảy ra lỗi",
       continueWithGithub: "Đã xảy ra lỗi khi đăng nhập bằng GitHub",
     },
+    auth: "Đã xảy ra lỗi khi xác thực",
   },
 };
 

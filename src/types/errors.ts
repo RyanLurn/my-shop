@@ -1,3 +1,5 @@
+import type { APIError } from "better-auth/api";
+
 type UnexpectedError = {
   kind: "unexpected";
   message: string;
@@ -11,4 +13,11 @@ type NotFoundError = {
   context?: Record<string, unknown>;
 };
 
-export type { UnexpectedError, NotFoundError };
+type AuthApiError = {
+  kind: "auth-api";
+  message: string;
+  error: APIError;
+  context?: Record<string, unknown>;
+};
+
+export type { UnexpectedError, NotFoundError, AuthApiError };

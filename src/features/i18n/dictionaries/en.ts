@@ -6,6 +6,7 @@ const enDictionary: Dictionary = {
       default: "Something went wrong",
       continueWithGithub: "Something went wrong while signing in with GitHub",
     },
+    auth: "Something went wrong while authenticating",
   },
 };
 

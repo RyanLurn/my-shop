@@ -9,6 +9,7 @@ type Dictionary = {
       default: string;
       continueWithGithub: string;
     };
+    auth: string;
   };
 };
 
