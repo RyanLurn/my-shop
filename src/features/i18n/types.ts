@@ -11,10 +11,12 @@ type Dictionary = {
     };
     auth: string;
   };
-  loading: {
-    default: string;
-  };
+  loadingPleaseWait: string;
   continueWithGithub: string;
+  signUp: string;
+  signIn: string;
+  alreadyHaveAnAccount: string;
+  dontHaveAnAccount: string;
 };
 
 export type { SupportedLanguage, Dictionary };

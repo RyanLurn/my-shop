@@ -8,10 +8,12 @@ const enDictionary: Dictionary = {
     },
     auth: "Something went wrong while authenticating",
   },
-  loading: {
-    default: "Loading...",
-  },
+  loadingPleaseWait: "Loading, please wait...",
   continueWithGithub: "Continue with GitHub",
+  signUp: "Sign up",
+  signIn: "Sign in",
+  alreadyHaveAnAccount: "Already have an account?",
+  dontHaveAnAccount: "Don't have an account?",
 };
 
 export { enDictionary };

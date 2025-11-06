@@ -8,10 +8,12 @@ const viDictionary: Dictionary = {
     },
     auth: "Đã xảy ra lỗi khi xác thực",
   },
-  loading: {
-    default: "Đang tải...",
-  },
+  loadingPleaseWait: "Đang tải, vui lòng đợi...",
   continueWithGithub: "Tiếp tục với GitHub",
+  signUp: "Đăng ký",
+  signIn: "Đăng nhập",
+  alreadyHaveAnAccount: "Bạn đã có tài khoản?",
+  dontHaveAnAccount: "Bạn chưa có tài khoản?",
 };
 
 export { viDictionary };
