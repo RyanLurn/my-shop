@@ -18,6 +18,7 @@ type Dictionary = {
   alreadyHaveAnAccount: string;
   dontHaveAnAccount: string;
   somethingWentWrong: string;
+  requestIsNotAuthenticated: string;
 };
 
 export type { SupportedLanguage, Dictionary };

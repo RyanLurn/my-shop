@@ -15,6 +15,7 @@ const enDictionary: Dictionary = {
   alreadyHaveAnAccount: "Already have an account?",
   dontHaveAnAccount: "Don't have an account?",
   somethingWentWrong: "Something went wrong",
+  requestIsNotAuthenticated: "Request is not authenticated",
 };
 
 export { enDictionary };

@@ -20,4 +20,15 @@ type AuthApiError = {
   context?: Record<string, unknown>;
 };
 
-export type { UnexpectedError, NotFoundError, AuthApiError };
+type NotAuthenticatedError = {
+  kind: "not-authenticated";
+  message: string;
+  context?: Record<string, unknown>;
+};
+
+export type {
+  UnexpectedError,
+  NotFoundError,
+  AuthApiError,
+  NotAuthenticatedError,
+};

@@ -15,6 +15,7 @@ const viDictionary: Dictionary = {
   alreadyHaveAnAccount: "Bạn đã có tài khoản?",
   dontHaveAnAccount: "Bạn chưa có tài khoản?",
   somethingWentWrong: "Đã xảy ra lỗi",
+  requestIsNotAuthenticated: "Yêu cầu không được xác thực",
 };
 
 export { viDictionary };
