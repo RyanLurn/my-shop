@@ -1,5 +1,6 @@
 import { match } from "@formatjs/intl-localematcher";
 import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from "@/features/i18n/consts";
+import { supportedLanguageSchema } from "@/features/i18n/validators";
 
 function getMatchedLanguage(visitorPreferredLanguages: string[]) {
   const matchedLanguage = match(
@@ -8,7 +9,9 @@ function getMatchedLanguage(visitorPreferredLanguages: string[]) {
     DEFAULT_LANGUAGE
   );
 
-  return matchedLanguage;
+  const validatedLanguage = supportedLanguageSchema.parse(matchedLanguage);
+
+  return validatedLanguage;
 }
 
 export { getMatchedLanguage };

@@ -1,17 +1,18 @@
+import type { SupportedLanguage } from "@/features/i18n/types";
 import "server-only";
 
 const dictionaries = {
   en: () =>
-    import("@/features/i18n/dictionaries/en.json").then(
-      (module) => module.default
+    import("@/features/i18n/dictionaries/en").then(
+      (module) => module.enDictionary
     ),
   vi: () =>
-    import("@/features/i18n/dictionaries/vi.json").then(
-      (module) => module.default
+    import("@/features/i18n/dictionaries/vi").then(
+      (module) => module.viDictionary
     ),
 };
 
-function getDictionary(lang: "en" | "vi") {
+function getDictionary(lang: SupportedLanguage) {
   return dictionaries[lang]();
 }
 

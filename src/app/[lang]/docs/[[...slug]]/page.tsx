@@ -24,7 +24,7 @@ export default async function DocPage({ params }: DocPageProp) {
       notFound();
     }
 
-    throw new Error(dictionary["unexpected-error-display-message"]);
+    throw new Error(dictionary.errors.unexpected.default);
   }
 
   const post = getPublishedPostResult.value;
