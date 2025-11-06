@@ -19,6 +19,7 @@ export default async function SignInPage({
       <GitHubOAuthButton
         loadingText={dictionary.loadingPleaseWait}
         continueWithGithubText={dictionary.continueWithGithub}
+        somethingWentWrongText={dictionary.somethingWentWrong}
       />
       <p className="text-center">
         {dictionary.dontHaveAnAccount}{" "}

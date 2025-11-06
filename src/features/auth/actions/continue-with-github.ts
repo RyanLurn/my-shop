@@ -1,5 +1,6 @@
 "use server";
 
+import type { Route } from "next";
 import { headers } from "next/headers";
 import { auth } from "@/features/auth";
 import { handleAuthApiError } from "@/features/auth/helpers/handle-auth-api-error";
@@ -17,6 +18,7 @@ async function continueWithGithub() {
       headers: webHeaders,
       body: {
         provider: "github",
+        callbackURL: `/${displayLanguage}/dashboard` as Route,
       },
     });
 
