@@ -11,6 +11,10 @@ type Dictionary = {
     };
     auth: string;
   };
+  loading: {
+    default: string;
+  };
+  continueWithGithub: string;
 };
 
 export type { SupportedLanguage, Dictionary };

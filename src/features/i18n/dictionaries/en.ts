@@ -8,6 +8,10 @@ const enDictionary: Dictionary = {
     },
     auth: "Something went wrong while authenticating",
   },
+  loading: {
+    default: "Loading...",
+  },
+  continueWithGithub: "Continue with GitHub",
 };
 
 export { enDictionary };

@@ -8,6 +8,10 @@ const viDictionary: Dictionary = {
     },
     auth: "Đã xảy ra lỗi khi xác thực",
   },
+  loading: {
+    default: "Đang tải...",
+  },
+  continueWithGithub: "Tiếp tục với GitHub",
 };
 
 export { viDictionary };
