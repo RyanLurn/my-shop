@@ -1,4 +1,4 @@
-import type { Dictionary } from "@/features/i18n/dictionaries/type";
+import type { Dictionary } from "@/features/i18n/types";
 
 const viDictionary: Dictionary = {
   errors: {

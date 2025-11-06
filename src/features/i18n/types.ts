@@ -3,4 +3,13 @@ import type { supportedLanguageSchema } from "@/features/i18n/validators";
 
 type SupportedLanguage = z.infer<typeof supportedLanguageSchema>;
 
-export type { SupportedLanguage };
+type Dictionary = {
+  errors: {
+    unexpected: {
+      default: string;
+      continueWithGithub: string;
+    };
+  };
+};
+
+export type { SupportedLanguage, Dictionary };
